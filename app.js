@@ -8,7 +8,7 @@ const app = express()
 
 //middleware
 
-
+app.use(express.json())
 //Conexion bd
 
 mongoose.connect(process.env.MONGO_URI)

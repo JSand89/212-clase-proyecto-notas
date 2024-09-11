@@ -38,17 +38,14 @@ exports.actualizarEstudiente = async (req,res)=>{
     try{
         const idEstudiante = req.params.idEstudiante
         const nuevoEstudiante = req.body
-        const estudiante = await Estudiante
-            .findByIdAndUpdate(idEstudiante,nuevoEstudiante,{new:true})
+        const estudiante = await Estudiante.findByIdAndUpdate(idEstudiante,nuevoEstudiante,{new:true})
         if(!estudiante){
             res.status(404).json({message:"estudiante no encontrado"})
         }
-        console.log(`Actualizar estudiante con ID ${idEstudiante}`)
         res.status(200).json(estudiante)
     }catch(error){
         res.status(500).json({error:error.message})      
     }
-
 }
 exports.eliminarEstudiante = async (req,res)=>{
     try{
@@ -57,10 +54,8 @@ exports.eliminarEstudiante = async (req,res)=>{
         if(!estudiante){
             res.status(404).json({message:"estudiante no encontrado"})
         }
-        console.log(estudiante)
         res.status(200).json({message:`estudiante con ${idEstudiante} eliminado`})
     }catch(error){
         res.status(500).json({error:error.message})      
     }
-
 }

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const materiaSchema = new Schema ({
     nombre:{
         type:String,
-        require: true
+        required: true
     },
     estudiantes :[{
         type: Schema.Types.ObjectId,
@@ -12,7 +12,7 @@ const materiaSchema = new Schema ({
     }],
     profesor:{
         type:String,
-        require:true
+        required:true
     }
 })
 

@@ -4,6 +4,7 @@ require("dotenv").config()
 
 const estudiantesRoutes = require("./routes/estudiantes")
 const materiaRoutes = require("./routes/materia")
+const authRoutes = require("./routes/auth")
 const app = express()
 
 //middleware
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGO_URI)
 //rutas
 app.use("/api/estudiantes",estudiantesRoutes)
 app.use("/api/materia",materiaRoutes)
+app.use("/api", authRoutes)
 
 const PORT = process.env.PORT ||3000  
 

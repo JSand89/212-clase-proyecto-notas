@@ -3,11 +3,11 @@ const mongoose = require("mongoose")
 const estudianteSchema = new mongoose.Schema({
     nombre:{
         type:String,
-        require:true
+        required:true
     },
     matricula:{
         type:Boolean,
-        require:true,
+        required:true,
         default:false
     },
     edad: Number,

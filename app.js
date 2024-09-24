@@ -20,12 +20,14 @@ mongoose.connect(process.env.MONGO_URI)
     .catch(err => console.error(`No se pudo conectar a MongoDB`,err))
 
 //rutas
-app.use("/api/estudiantes",estudiantesRoutes)
+app.use("/api/estudiantes", authMiddleware,estudiantesRoutes)
 app.use("/api/materia",authMiddleware, materiaRoutes)
 app.use("/api", authRoutes)
 
 const PORT = process.env.PORT ||3000  
 
-app.listen(PORT,()=> console.log(`servidor escuchando el puerto ${PORT}`))
+module.exports = app
+
+//app.listen(PORT,()=> console.log(`servidor escuchando el puerto ${PORT}`))
 
 

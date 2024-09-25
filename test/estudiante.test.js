@@ -35,6 +35,7 @@ async function limpiarEstudiantes() {
 describe("CRUD Estudiantes con JWT",()=>{
 
     it("Deberia crear un nuevo estudiante", async ()=>{
+      // llamado al endpoint
         const token = generarToken()
         const res = await request(app)
         .post("/api/estudiantes")
@@ -44,6 +45,7 @@ describe("CRUD Estudiantes con JWT",()=>{
             matricula:true,
             edad:22
         })
+        // respuestas esperadas
         expect(res.statusCode).toEqual(201)
         expect(res.body).toHaveProperty("_id")
         expect(res.body.nombre).toBe("Juan Perez")
